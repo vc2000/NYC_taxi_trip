@@ -84,16 +84,20 @@ print("the median of the taxi's fare per mile driven : " + str(df["fare_per_mile
 """
     the average ratio of the distance between the pickup and drop-off divided by the distance driven???
 """
+taxi_zone_df = pd.read_csv("data/taxi _zone_lookup.csv")
+df_clean = df[['trip_distance','PULocationID','DOLocationID']]
+add_begloc = pd.merge(df_clean,taxi_zone_df, left_on="PULocationID", right_on="LocationID",how='left')
+
+del_cols = ['Borough','service_zone']
+begloc_clean = add_begloc.drop(del_cols, axis=1)
+rename_beg_zone = begloc_clean.rename(columns={'Zone':'begZone'})
+
+add_endloc = pd.merge(rename_beg_zone, taxi_zone_df, left_on="DOLocationID", right_on="LocationID",how='left')
+endloc_clean = add_endloc.drop(del_cols, axis=1)
+rename_end_zone = endloc_clean.rename(columns={'Zone':'endZone'})
 
 
-
-"""taxi_zone_df = pd.read_csv("data/taxi _zone_lookup.csv")
-
-
-result = pd.merge(df,taxi_zone_df, left_on="PULocationID", right_on="LocationID",how='left')
-print(result.head())"""
-
-# open taxi location file, get location geocode then find distance
+print(rename_end_zone.head())
 """
     the average tip for rides from JFK
 """
