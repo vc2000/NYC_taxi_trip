@@ -82,22 +82,37 @@ print("the median of the taxi's fare per mile driven : " + str(df["fare_per_mile
 
 
 """
-    the average ratio of the distance between the pickup and drop-off divided by the distance driven???
+    the average ratio of the distance between the pickup and drop-off divided by the distance driven
 """
+"""from geopy.geocoders import Nominatim
+geolocator = Nominatim()
+
 taxi_zone_df = pd.read_csv("data/taxi _zone_lookup.csv")
 df_clean = df[['trip_distance','PULocationID','DOLocationID']]
 add_begloc = pd.merge(df_clean,taxi_zone_df, left_on="PULocationID", right_on="LocationID",how='left')
-
-del_cols = ['Borough','service_zone']
-begloc_clean = add_begloc.drop(del_cols, axis=1)
-rename_beg_zone = begloc_clean.rename(columns={'Zone':'begZone'})
-
-add_endloc = pd.merge(rename_beg_zone, taxi_zone_df, left_on="DOLocationID", right_on="LocationID",how='left')
-endloc_clean = add_endloc.drop(del_cols, axis=1)
-rename_end_zone = endloc_clean.rename(columns={'Zone':'endZone'})
+add_begloc["Zone"] = add_begloc["Zone"] +"," +add_begloc["Borough"] 
+add_begloc = add_begloc.rename(columns={'Zone':'begZone'})
+add_begloc = add_begloc.drop(['service_zone', 'Borough'], axis=1)
+add_begloc['beg_geocode'] = add_begloc['begZone'].apply(geolocator.geocode)
 
 
-print(rename_end_zone.head())
+add_endloc = pd.merge(add_begloc, taxi_zone_df, left_on="DOLocationID", right_on="LocationID",how='left')
+add_endloc["Zone"] = add_endloc["Zone"] +"," +add_endloc["Borough"] 
+add_endloc = add_endloc.rename(columns={'Zone':'endZone'})
+add_endloc = add_endloc.drop(['service_zone','Borough'], axis=1)
+add_endloc['end_geocode'] = add_endloc['endZone'].apply(geolocator.geocode)
+
+add_endloc['beg_end_distance']= add_endloc.apply(lambda row: vincenty(
+        (add_endloc['endZone'],add_endloc['begZone']).miles),axis=1)
+
+add_endloc['distance_diff'] = add_endloc['beg_end_distance']/add_endloc['trip_distance']
+
+print(add_endloc.mean())"""
+
+
+
+
+
 """
     the average tip for rides from JFK
 """
