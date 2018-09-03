@@ -50,36 +50,33 @@ print("saved" + file_name)"""
 
 
 """
-    the mean fare per minute driven  ?????problem??????
-    how to convert min to float
+    the mean fare per minute driven
 """
-#df["time_diff"] = df["tpep_dropoff_datetime"] - df["tpep_pickup_datetime"]
 
-"""df["tpep_dropoff_datetime"] = pd.to_datetime(df["tpep_dropoff_datetime"])
-df["tpep_pickup_datetime"] = pd.to_datetime(df["tpep_pickup_datetime"])
+"""df["tpep_dropoff_datetime"] = pd.to_datetime(df["tpep_dropoff_datetime"], format='%Y-%m-%d %H:%M:%S')
+df["tpep_pickup_datetime"] = pd.to_datetime(df["tpep_pickup_datetime"], format='%Y-%m-%d %H:%M:%S')
+#problem
 df["time_diff"] = df["tpep_dropoff_datetime"] - df["tpep_pickup_datetime"]
-
-df["fare_per_min"] = df["fare_amount"] / df["time_diff"] # wrong
-print(df.head())"""
-
-#print("the mean fare per minute driven :" + str( df["fare_per_min"].mean()))
+df['time_diff'] = df['time_diff'].astype('timedelta64[s]') /60
+df["fare_per_min"] = df["fare_amount"] / df["time_diff"]
+print("the mean fare per minute driven :" + str( df["fare_per_min"].mean()))"""
 
 
 """
     the median of the taxi's fare per mile driven
 """
-"""print(df.head())
-
-df["fare_per_mile"] = df["fare_amount"] / df["trip_distance"]
+"""df["fare_per_mile"] = df["fare_amount"] / df["trip_distance"]
 
 print("the median of the taxi's fare per mile driven : " + str(df["fare_per_mile"].median()) )"""
 
 
 """
-    the 95 percentile of the taxi's average driving speed in miles per hour ??
+    the 95 percentile of the taxi's average driving speed in miles per hour ???
 """
+# distance / time = speed
+"""df['speed'] = trip_distance / 
 
-
+print(df.head())"""
 
 """
     the average ratio of the distance between the pickup and drop-off divided by the distance driven
