@@ -53,7 +53,7 @@ print("saved" + file_name)"""
     the mean fare per minute driven
 """
 
-df["tpep_dropoff_datetime"] = pd.to_datetime(df["tpep_dropoff_datetime"], format='%Y-%m-%d %H:%M:%S')
+"""df["tpep_dropoff_datetime"] = pd.to_datetime(df["tpep_dropoff_datetime"], format='%Y-%m-%d %H:%M:%S')
 df["tpep_pickup_datetime"] = pd.to_datetime(df["tpep_pickup_datetime"], format='%Y-%m-%d %H:%M:%S')
 df["time_diff"] = df["tpep_dropoff_datetime"] - df["tpep_pickup_datetime"]
 df['time_diff'] = df['time_diff'].astype('timedelta64[s]') /60
@@ -62,14 +62,13 @@ print("Max : ",df['time_diff'].max() )
 df = df.query("time_diff < 0")
 print(df.head())
 df["fare_per_min"] = df["fare_amount"] / df["time_diff"]
-print("the mean fare per minute driven :" + str( df["fare_per_min"].mean()))
+print("the mean fare per minute driven :" + str( df["fare_per_min"].mean()))"""
 
 
 """
     the median of the taxi's fare per mile driven
 """
 """df["fare_per_mile"] = df["fare_amount"] / df["trip_distance"]
-
 print("the median of the taxi's fare per mile driven : " + str(df["fare_per_mile"].median()) )"""
 
 
@@ -77,7 +76,7 @@ print("the median of the taxi's fare per mile driven : " + str(df["fare_per_mile
     the 95 percentile of the taxi's average driving speed in miles per hour ???
 """
 
-df["tpep_dropoff_datetime"] = pd.to_datetime(df["tpep_dropoff_datetime"], format='%Y-%m-%d %H:%M:%S')
+"""df["tpep_dropoff_datetime"] = pd.to_datetime(df["tpep_dropoff_datetime"], format='%Y-%m-%d %H:%M:%S')
 df["tpep_pickup_datetime"] = pd.to_datetime(df["tpep_pickup_datetime"], format='%Y-%m-%d %H:%M:%S')
 df["time_diff"] = df["tpep_dropoff_datetime"] - df["tpep_pickup_datetime"]
 # per hour
@@ -89,7 +88,7 @@ df['speed'] = df['trip_distance'] / df['time_diff_hour']
 #need to sort
 
 
-print(df.head())
+print(df.head())"""
 
 """
     the average ratio of the distance between the pickup and drop-off divided by the distance driven
