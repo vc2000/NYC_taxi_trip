@@ -86,7 +86,7 @@ with open("Q6_median_fare_per_mile_driven.txt", "w") as text_file:
     the 95 percentile of the taxi's average driving speed in miles per hour ???
 """
 
-df["tpep_dropoff_datetime"] = pd.to_datetime(df["tpep_dropoff_datetime"], format='%Y-%m-%d %H:%M:%S')
+"""df["tpep_dropoff_datetime"] = pd.to_datetime(df["tpep_dropoff_datetime"], format='%Y-%m-%d %H:%M:%S')
 df["tpep_pickup_datetime"] = pd.to_datetime(df["tpep_pickup_datetime"], format='%Y-%m-%d %H:%M:%S')
 df["time_diff"] = df["tpep_dropoff_datetime"] - df["tpep_pickup_datetime"]
 # per hour
@@ -97,7 +97,7 @@ df['speed'] = df['trip_distance'] / df['time_diff_hour']
 quantile_95th = df.speed.quantile(0.95)
 
 with open("Q7_95th_avg_speed_miles_per_hour.txt", "w") as text_file:
-    print(f"the 95 percentile of the taxi's average driving speed in miles per hour :  {quantile_95th}", file=text_file)
+    print(f"the 95 percentile of the taxi's average driving speed in miles per hour :  {quantile_95th}", file=text_file)"""
 
 
 
