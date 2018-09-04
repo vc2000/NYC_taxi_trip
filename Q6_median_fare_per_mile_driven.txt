@@ -1,1 +1,1 @@
-the median of the taxi's fare per mile driven :  4.119791666666666
+the median of the taxi's fare per mile driven :  5.448717948717949
