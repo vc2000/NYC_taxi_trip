@@ -37,7 +37,7 @@ print("saved" + file_name)"""
             df.query("total_amount > 50 & payment_type == 1").shape[0], df.shape[0]
         )
     )
-"""
+)"""
 
 """
     Number of credit card payments over $50
@@ -57,6 +57,10 @@ df["tpep_dropoff_datetime"] = pd.to_datetime(df["tpep_dropoff_datetime"], format
 df["tpep_pickup_datetime"] = pd.to_datetime(df["tpep_pickup_datetime"], format='%Y-%m-%d %H:%M:%S')
 df["time_diff"] = df["tpep_dropoff_datetime"] - df["tpep_pickup_datetime"]
 df['time_diff'] = df['time_diff'].astype('timedelta64[s]') /60
+print("Min : " , df['time_diff'].min()) # data has bug ... 
+print("Max : ",df['time_diff'].max() )
+df = df.query("time_diff < 0")
+print(df.head())
 df["fare_per_min"] = df["fare_amount"] / df["time_diff"]
 print("the mean fare per minute driven :" + str( df["fare_per_min"].mean()))
 
@@ -73,18 +77,19 @@ print("the median of the taxi's fare per mile driven : " + str(df["fare_per_mile
     the 95 percentile of the taxi's average driving speed in miles per hour ???
 """
 
-"""df["tpep_dropoff_datetime"] = pd.to_datetime(df["tpep_dropoff_datetime"], format='%Y-%m-%d %H:%M:%S')
+df["tpep_dropoff_datetime"] = pd.to_datetime(df["tpep_dropoff_datetime"], format='%Y-%m-%d %H:%M:%S')
 df["tpep_pickup_datetime"] = pd.to_datetime(df["tpep_pickup_datetime"], format='%Y-%m-%d %H:%M:%S')
 df["time_diff"] = df["tpep_dropoff_datetime"] - df["tpep_pickup_datetime"]
+# per hour
 df['time_diff_hour'] = df['time_diff'].astype('timedelta64[s]') /3600
 # distance / time = speed
 df['speed'] = df['trip_distance'] / df['time_diff_hour']
 
 
+#need to sort
 
 
-
-print(df.head())"""
+print(df.head())
 
 """
     the average ratio of the distance between the pickup and drop-off divided by the distance driven
@@ -113,9 +118,6 @@ add_endloc['beg_end_distance']= add_endloc.apply(lambda row: vincenty(
 add_endloc['distance_diff'] = add_endloc['beg_end_distance']/add_endloc['trip_distance']
 
 print(add_endloc.mean())"""
-
-
-
 
 
 """
