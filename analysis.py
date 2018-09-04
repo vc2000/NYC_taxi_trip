@@ -7,53 +7,56 @@ df = pd.read_csv("data/yellow_tripdata_2017-01.csv")
 """
     fraction of payments under $5 use a credit card
 """
-"""print(
-    "fraction of payments under $ 5 use a credit card : "
-    + str(
-        Fraction(df.query("total_amount < 5 & payment_type == 1").shape[0], df.shape[0])
-    )
-)"""
+
+fraction_under_5_credit = str(Fraction(df.query("total_amount < 5 & payment_type == 1").shape[0], df.shape[0]))
+
+with open("Q1_under5_creditcard.txt", "w") as text_file:
+    print(f"fraction of payments under $ 5 use a credit card : {fraction_under_5_credit}", file=text_file)
+
 
 """
-    Credit Card payments under $5 and a list sorted highest to lowest
+    Number of Credit Card payments under $5 and a list sorted highest to lowest
 """
 
-"""under_5_credit_df = df[(df.total_amount < 5) & (df.payment_type == 1)]
+num_under_5_credit = df[(df.total_amount < 5) & (df.payment_type == 1)]
 
-under_5_credit_df.sort_values(by="total_amount", ascending=0)
+num_under_5_credit.sort_values(by="total_amount", ascending=0)
 
-# save_as_new_csv
-file_name = "under_$5_credit_card.csv"
-under_5_credit_df.to_csv(file_name, sep="\t", encoding="utf-8")
-print("saved" + file_name)"""
+# save_as_new_csv and sorted
+file_name = "number_under_$5_credit_card.csv"
+num_under_5_credit.to_csv(file_name, sep=",", encoding="utf-8")
+print("saved" + file_name)
+
+str(num_under_5_credit.shape[0])
+with open("Q2_number_under_$5_credit_card.txt", "w") as text_file:
+    print(f"Number of Credit Card payments under $5  {num_under_5_credit}", file=text_file)
+
 
 """
     fraction of payments over $50 use a credit card
 """
-"""print(
-    "fraction of payments over $ 50 use a credit card : "
-    + str(
-        Fraction(
-            df.query("total_amount > 50 & payment_type == 1").shape[0], df.shape[0]
-        )
-    )
-)"""
+fraction_over_50_credit = str(
+        Fraction(df.query("total_amount > 50 & payment_type == 1").shape[0], df.shape[0]))
+
+with open("Q3_fraction_over_50_creditcard.txt", "w") as text_file:
+    print(f"fraction of payments over $ 50 use a credit card :  {fraction_over_50_credit}", file=text_file)
+
 
 """
     Number of credit card payments over $50
 """
+num_over_50_credit = str(df.query("total_amount > 50 & payment_type == 1").shape[0])
 
-"""print(
-    "Number of credit card payments over $50 "
-    + str(df.query("total_amount > 50 & payment_type == 1").shape[0])
-)"""
+with open("Q4_number_over_50_creditcard.txt", "w") as text_file:
+    print(f"Number of credit card payments over $50 :  {num_over_50_credit}", file=text_file)
+
 
 
 """
     the mean fare per minute driven
 """
 
-"""df["tpep_dropoff_datetime"] = pd.to_datetime(df["tpep_dropoff_datetime"], format='%Y-%m-%d %H:%M:%S')
+df["tpep_dropoff_datetime"] = pd.to_datetime(df["tpep_dropoff_datetime"], format='%Y-%m-%d %H:%M:%S')
 df["tpep_pickup_datetime"] = pd.to_datetime(df["tpep_pickup_datetime"], format='%Y-%m-%d %H:%M:%S')
 df["time_diff"] = df["tpep_dropoff_datetime"] - df["tpep_pickup_datetime"]
 df['time_diff'] = df['time_diff'].astype('timedelta64[s]') /60
@@ -62,14 +65,21 @@ print("Max : ",df['time_diff'].max() )
 df = df.query("time_diff < 0")
 print(df.head())
 df["fare_per_min"] = df["fare_amount"] / df["time_diff"]
-print("the mean fare per minute driven :" + str( df["fare_per_min"].mean()))"""
+print("the mean fare per minute driven :" + str( df["fare_per_min"].mean()))
 
+fare_per_min_mean = str( df["fare_per_min"].mean())
+with open("Q5_mean_fare_per_min_driven.txt", "w") as text_file:
+    print(f"the mean fare per minute driven :  {fare_per_min_mean}", file=text_file)
 
 """
     the median of the taxi's fare per mile driven
 """
-"""df["fare_per_mile"] = df["fare_amount"] / df["trip_distance"]
-print("the median of the taxi's fare per mile driven : " + str(df["fare_per_mile"].median()) )"""
+df["fare_per_mile"] = df["fare_amount"] / df["trip_distance"]
+print("the median of the taxi's fare per mile driven : " + str(df["fare_per_mile"].median()) )
+
+median_fare_per_mile_driven = str(df["fare_per_mile"].median())
+with open("Q6_median_fare_per_mile_driven.txt", "w") as text_file:
+    print(f"the median of the taxi's fare per mile driven :  {median_fare_per_mile_driven}", file=text_file)
 
 
 """
@@ -93,7 +103,9 @@ print(df.head())"""
 """
     the average ratio of the distance between the pickup and drop-off divided by the distance driven
 """
-"""from geopy.geocoders import Nominatim
+
+from geopy.geocoders import Nominatim
+from geopy.distance import vincenty
 geolocator = Nominatim()
 
 taxi_zone_df = pd.read_csv("data/taxi _zone_lookup.csv")
@@ -116,7 +128,11 @@ add_endloc['beg_end_distance']= add_endloc.apply(lambda row: vincenty(
 
 add_endloc['distance_diff'] = add_endloc['beg_end_distance']/add_endloc['trip_distance']
 
-print(add_endloc.mean())"""
+print(add_endloc['distance_diff'].mean())
+avg_beg_end_distance_divided_distance_driven = add_endloc['distance_diff'].mean()
+with open("Q8_avg_beg_end_distance_divided_distance_driven.txt", "w") as text_file:
+    print(f"the average ratio of the distance between the pickup and drop-off divided by the distance driven :  {avg_beg_end_distance_divided_distance_driven}", file=text_file)
+
 
 
 """

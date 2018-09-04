@@ -1,0 +1,1 @@
+Number of credit card payments over $50 :  285400
