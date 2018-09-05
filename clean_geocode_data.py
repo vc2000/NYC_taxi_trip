@@ -14,6 +14,7 @@ geo_df["city_coord"] = geo_df.city_coord.apply(lambda x: x.replace('[','').repla
 geo_df['lat'], geo_df['lng'] = geo_df["city_coord"].str.split(',',1).str
 
 geo_df = geo_df.drop('city_coord', 1)
+geo_df = geo_df.drop('Unnamed: 0', 1)
 
 print(geo_df.head())
 
