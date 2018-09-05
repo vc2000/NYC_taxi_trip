@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script>L_PREFER_CANVAS = false; L_NO_TOUCH = false; L_DISABLE_3D = false;</script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.2.0/dist/leaflet.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.2.0/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css" />
+    <link rel="stylesheet" href="https://rawgit.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css" />
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    
+            <style> #map_070d9a90931d4dcb80cf9530830613ea {
+                position : relative;
+                width : 100.0%;
+                height: 100.0%;
+                left: 0.0%;
+                top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_070d9a90931d4dcb80cf9530830613ea" ></div>
+        
+</body>
+<script>    
+    
+
+            
+                var bounds = null;
+            
+
+            var map_070d9a90931d4dcb80cf9530830613ea = L.map(
+                                  'map_070d9a90931d4dcb80cf9530830613ea',
+                                  {center: [40.7306,-73.9352],
+                                  zoom: 13,
+                                  maxBounds: bounds,
+                                  layers: [],
+                                  worldCopyJump: false,
+                                  crs: L.CRS.EPSG3857
+                                 });
+            
+        
+    
+            var tile_layer_b9e3eae1f20d4d1ea6772971f9884e1c = L.tileLayer(
+                'https://stamen-tiles-{s}.a.ssl.fastly.net/terrain/{z}/{x}/{y}.jpg',
+                {
+  "attribution": null,
+  "detectRetina": false,
+  "maxZoom": 18,
+  "minZoom": 1,
+  "noWrap": false,
+  "subdomains": "abc"
+}
+                ).addTo(map_070d9a90931d4dcb80cf9530830613ea);
+        
+    
+
+            var marker_abbed24f0c9c4a8f8455009037715e13 = L.marker(
+                [40.7735649,-73.9565551],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_070d9a90931d4dcb80cf9530830613ea);
+            
+    
+
+                var icon_dbc2b2d1420142d6a17d9a81230f46a0 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'red',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_abbed24f0c9c4a8f8455009037715e13.setIcon(icon_dbc2b2d1420142d6a17d9a81230f46a0);
+            
+    
+            var popup_848072449fa5471c9f17b40331cfd764 = L.popup({maxWidth: '300'});
+
+            
+                var html_096f12755d67402ebe24d06dbd91bd2b = $('<div id="html_096f12755d67402ebe24d06dbd91bd2b" style="width: 100.0%; height: 100.0%;">No. 1 destination is Upper East Side North : 372514</div>')[0];
+                popup_848072449fa5471c9f17b40331cfd764.setContent(html_096f12755d67402ebe24d06dbd91bd2b);
+            
+
+            marker_abbed24f0c9c4a8f8455009037715e13.bindPopup(popup_848072449fa5471c9f17b40331cfd764);
+
+            
+        
+    
+
+            var marker_d95178dee239430483e5cdd964b067e8 = L.marker(
+                [40.7663209,-73.9767124],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_070d9a90931d4dcb80cf9530830613ea);
+            
+    
+
+                var icon_893eb05879da4385a18749d3f0c770e9 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_d95178dee239430483e5cdd964b067e8.setIcon(icon_893eb05879da4385a18749d3f0c770e9);
+            
+    
+            var popup_43aca250977a4f99ba83bf4a73dc9874 = L.popup({maxWidth: '300'});
+
+            
+                var html_6510b921acda49ac9ea14f21a23cd07e = $('<div id="html_6510b921acda49ac9ea14f21a23cd07e" style="width: 100.0%; height: 100.0%;">No. 2 destination is Midtown Center : 345348</div>')[0];
+                popup_43aca250977a4f99ba83bf4a73dc9874.setContent(html_6510b921acda49ac9ea14f21a23cd07e);
+            
+
+            marker_d95178dee239430483e5cdd964b067e8.bindPopup(popup_43aca250977a4f99ba83bf4a73dc9874);
+
+            
+        
+    
+
+            var marker_4ff2c7aba72b48d68fd0d5e32d2e12c3 = L.marker(
+                [40.7735649,-73.9882454],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_070d9a90931d4dcb80cf9530830613ea);
+            
+    
+
+                var icon_253bcc571db94f809a86806323e592cd = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'green',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_4ff2c7aba72b48d68fd0d5e32d2e12c3.setIcon(icon_253bcc571db94f809a86806323e592cd);
+            
+    
+            var popup_07efded42be94cb399aaa2204ca69e25 = L.popup({maxWidth: '300'});
+
+            
+                var html_6265044bfb8a420abffb34397bbf7f45 = $('<div id="html_6265044bfb8a420abffb34397bbf7f45" style="width: 100.0%; height: 100.0%;">No. 3 destination is Upper East Side South : 335309</div>')[0];
+                popup_07efded42be94cb399aaa2204ca69e25.setContent(html_6265044bfb8a420abffb34397bbf7f45);
+            
+
+            marker_4ff2c7aba72b48d68fd0d5e32d2e12c3.bindPopup(popup_07efded42be94cb399aaa2204ca69e25);
+
+            
+        
+    
+
+            var marker_4362d29c397c49fd866301382e4e03cc = L.marker(
+                [40.7478792,-73.9756567],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_070d9a90931d4dcb80cf9530830613ea);
+            
+    
+
+                var icon_3d44fb4f0a86491ab4034a33983285fb = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'purple',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_4362d29c397c49fd866301382e4e03cc.setIcon(icon_3d44fb4f0a86491ab4034a33983285fb);
+            
+    
+            var popup_a48c5524c0e246789e3ee413685d333b = L.popup({maxWidth: '300'});
+
+            
+                var html_ce79f679528e465aa094e8f4fb22e453 = $('<div id="html_ce79f679528e465aa094e8f4fb22e453" style="width: 100.0%; height: 100.0%;">No. 4 destination is Murray Hill : 309030</div>')[0];
+                popup_a48c5524c0e246789e3ee413685d333b.setContent(html_ce79f679528e465aa094e8f4fb22e453);
+            
+
+            marker_4362d29c397c49fd866301382e4e03cc.bindPopup(popup_a48c5524c0e246789e3ee413685d333b);
+
+            
+        
+    
+
+            var marker_9a783395e33645c5bc12b93763df15c0 = L.marker(
+                [40.7540369,-73.9668408],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_070d9a90931d4dcb80cf9530830613ea);
+            
+    
+
+                var icon_4f2cdc1c2d814bbeac939dae686f63ac = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'orange',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_9a783395e33645c5bc12b93763df15c0.setIcon(icon_4f2cdc1c2d814bbeac939dae686f63ac);
+            
+    
+            var popup_37fd36c06d674c498df4bc6b6ddca984 = L.popup({maxWidth: '300'});
+
+            
+                var html_53572fe2b86845c797687983ee4aced0 = $('<div id="html_53572fe2b86845c797687983ee4aced0" style="width: 100.0%; height: 100.0%;">No. 5 destination is Midtown East : 297743</div>')[0];
+                popup_37fd36c06d674c498df4bc6b6ddca984.setContent(html_53572fe2b86845c797687983ee4aced0);
+            
+
+            marker_9a783395e33645c5bc12b93763df15c0.bindPopup(popup_37fd36c06d674c498df4bc6b6ddca984);
+
+            
+        
+    
+
+            var marker_f52121185cfc4db8b096043c7b3176c9 = L.marker(
+                [40.759011,-73.9844722],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_070d9a90931d4dcb80cf9530830613ea);
+            
+    
+
+                var icon_faabf7fa62654244890ea2a81fc38477 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'darkred',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_f52121185cfc4db8b096043c7b3176c9.setIcon(icon_faabf7fa62654244890ea2a81fc38477);
+            
+    
+            var popup_62e42e50298f4234b157ee187f2ea073 = L.popup({maxWidth: '300'});
+
+            
+                var html_42e9a51c6c6c435697221fe9c29df3cc = $('<div id="html_42e9a51c6c6c435697221fe9c29df3cc" style="width: 100.0%; height: 100.0%;">No. 6 destination is Times Sq/Theatre District : 291538</div>')[0];
+                popup_62e42e50298f4234b157ee187f2ea073.setContent(html_42e9a51c6c6c435697221fe9c29df3cc);
+            
+
+            marker_f52121185cfc4db8b096043c7b3176c9.bindPopup(popup_62e42e50298f4234b157ee187f2ea073);
+
+            
+        
+    
+
+            var marker_5cebf37d9b374dc29320fde44cb9a1c7 = L.marker(
+                [40.7358633,-73.9910835],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_070d9a90931d4dcb80cf9530830613ea);
+            
+    
+
+                var icon_94bbc2f270d242f1ba99cf192b909706 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'lightred',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_5cebf37d9b374dc29320fde44cb9a1c7.setIcon(icon_94bbc2f270d242f1ba99cf192b909706);
+            
+    
+            var popup_d1e84daf73c2479dacb46bf3cb53ab0a = L.popup({maxWidth: '300'});
+
+            
+                var html_7374088866f6426da1196e57bcea5cdb = $('<div id="html_7374088866f6426da1196e57bcea5cdb" style="width: 100.0%; height: 100.0%;">No. 7 destination is Union Sq : 279070</div>')[0];
+                popup_d1e84daf73c2479dacb46bf3cb53ab0a.setContent(html_7374088866f6426da1196e57bcea5cdb);
+            
+
+            marker_5cebf37d9b374dc29320fde44cb9a1c7.bindPopup(popup_d1e84daf73c2479dacb46bf3cb53ab0a);
+
+            
+        
+    
+
+            var marker_399388ad2e9d401a9b0f1b3925ea02c1 = L.marker(
+                [40.7559712,-73.9920452],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_070d9a90931d4dcb80cf9530830613ea);
+            
+    
+
+                var icon_34c6b10db87840e4857f27ce8d723859 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'beige',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_399388ad2e9d401a9b0f1b3925ea02c1.setIcon(icon_34c6b10db87840e4857f27ce8d723859);
+            
+    
+            var popup_85dfd102d4d3411784e775d5ae42e3a5 = L.popup({maxWidth: '300'});
+
+            
+                var html_4764449f0b9d4271a01f43edc5665a0e = $('<div id="html_4764449f0b9d4271a01f43edc5665a0e" style="width: 100.0%; height: 100.0%;">No. 8 destination is Penn Station/Madison Sq West : 264858</div>')[0];
+                popup_85dfd102d4d3411784e775d5ae42e3a5.setContent(html_4764449f0b9d4271a01f43edc5665a0e);
+            
+
+            marker_399388ad2e9d401a9b0f1b3925ea02c1.bindPopup(popup_85dfd102d4d3411784e775d5ae42e3a5);
+
+            
+        
+    
+
+            var marker_0d25e634af564339a218861a71eab651 = L.marker(
+                [40.7637581,-73.9918181],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_070d9a90931d4dcb80cf9530830613ea);
+            
+    
+
+                var icon_e753170eac544a589e2a0dd1b4391daa = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'darkblue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_0d25e634af564339a218861a71eab651.setIcon(icon_e753170eac544a589e2a0dd1b4391daa);
+            
+    
+            var popup_35a08d011ffb4bc080ee58942e620ba2 = L.popup({maxWidth: '300'});
+
+            
+                var html_939a943e0cee4012a4896430fe9aad69 = $('<div id="html_939a943e0cee4012a4896430fe9aad69" style="width: 100.0%; height: 100.0%;">No. 9 destination is Clinton East : 260094</div>')[0];
+                popup_35a08d011ffb4bc080ee58942e620ba2.setContent(html_939a943e0cee4012a4896430fe9aad69);
+            
+
+            marker_0d25e634af564339a218861a71eab651.bindPopup(popup_35a08d011ffb4bc080ee58942e620ba2);
+
+            
+        
+    
+
+            var marker_a92acad67ac642a7b47dc25636d4bb08 = L.marker(
+                [40.773828,-73.9844722],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_070d9a90931d4dcb80cf9530830613ea);
+            
+    
+
+                var icon_4747e8c1dd944d61b73ab6a5c0082252 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'darkgreen',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_a92acad67ac642a7b47dc25636d4bb08.setIcon(icon_4747e8c1dd944d61b73ab6a5c0082252);
+            
+    
+            var popup_686f04d3f6b54a2ab7a65d7308271dec = L.popup({maxWidth: '300'});
+
+            
+                var html_d0fd69ea9f1d42db85f308d46bbd4feb = $('<div id="html_d0fd69ea9f1d42db85f308d46bbd4feb" style="width: 100.0%; height: 100.0%;">No. 10 destination is Lincoln Square East : 250984</div>')[0];
+                popup_686f04d3f6b54a2ab7a65d7308271dec.setContent(html_d0fd69ea9f1d42db85f308d46bbd4feb);
+            
+
+            marker_a92acad67ac642a7b47dc25636d4bb08.bindPopup(popup_686f04d3f6b54a2ab7a65d7308271dec);
+
+            
+        
+</script>

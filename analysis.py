@@ -51,7 +51,6 @@ with open("Q4_number_over_50_creditcard.txt", "w") as text_file:
     print(f"Number of credit card payments over $50 :  {num_over_50_credit}", file=text_file)"""
 
 
-
 """
     the mean fare per minute driven # bug data...
 """
@@ -62,8 +61,8 @@ df["time_diff"] = df["tpep_dropoff_datetime"] - df["tpep_pickup_datetime"]
 df['time_diff'] = df['time_diff'].astype('timedelta64[s]') /60
 print("Min : " , df['time_diff'].min()) # data has bug ...
 print("Max : ",df['time_diff'].max() )
-df = df.query("time_diff < 0")
-print(df.head())
+quer = df.query("time_diff < 0")
+print(quer.head())
 df["fare_per_min"] = df["fare_amount"] / df["time_diff"]
 print("the mean fare per minute driven :" + str( df["fare_per_min"].mean()))
 
@@ -100,7 +99,6 @@ with open("Q7_95th_avg_speed_miles_per_hour.txt", "w") as text_file:
     print(f"the 95 percentile of the taxi's average driving speed in miles per hour :  {quantile_95th}", file=text_file)"""
 
 
-
 """
     the average ratio of the distance between the pickup and drop-off divided by the distance driven
 """
@@ -135,7 +133,6 @@ with open("Q8_avg_beg_end_distance_divided_distance_driven.txt", "w") as text_fi
     print(f"the average ratio of the distance between the pickup and drop-off divided by the distance driven :  {avg_beg_end_distance_divided_distance_driven}", file=text_file)"""
 
 
-
 """
     the average tip for rides from JFK
 """
@@ -146,7 +143,6 @@ avg_tip = str(jfk['tip_amount'].mean())
 
 with open("Q9_avg_tip_JFK.txt", "w") as text_file:
     print(f"the average tip for rides from JFK  :  {avg_tip}", file=text_file)"""
-
 
 
 """
