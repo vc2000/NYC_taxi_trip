@@ -1,1 +1,1 @@
-the mean fare per minute driven :  nan
+the mean fare per minute driven :  0.833630799089

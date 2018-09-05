@@ -21,7 +21,7 @@ destination_count_df = destination_count_df.drop(["Unnamed: 0"], axis=1)
 lat_lng_count_df = pd.merge(destination_count_df,location_df,on="LocationID",how='left')
 
 # NYC
-map = folium.Map(location=[40.7306, -73.9352], tiles="Stamen Terrain", zoom_start=13)
+map = folium.Map(location=[40.758896, -73.985130], tiles="Stamen Terrain", zoom_start=13)
 
 color_list = [
     "red",
