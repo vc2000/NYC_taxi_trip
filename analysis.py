@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 from fractions import Fraction
-
+from math import radians, cos, sin, asin, sqrt
 
 df = pd.read_csv("data/yellow_tripdata_2017-01.csv")
 
@@ -57,12 +57,12 @@ with open("Q4_number_over_50_creditcard.txt", "w") as text_file:
     the mean fare per minute driven # bug data...
 """
 
-df["tpep_dropoff_datetime"] = pd.to_datetime(df["tpep_dropoff_datetime"], format='%Y-%m-%d %H:%M:%S')
+"""df["tpep_dropoff_datetime"] = pd.to_datetime(df["tpep_dropoff_datetime"], format='%Y-%m-%d %H:%M:%S')
 df["tpep_pickup_datetime"] = pd.to_datetime(df["tpep_pickup_datetime"], format='%Y-%m-%d %H:%M:%S')
 df["time_diff"] = df["tpep_dropoff_datetime"] - df["tpep_pickup_datetime"]
 df['time_diff'] = df['time_diff'].astype('timedelta64[s]') /60
 
-print("Min : " , df['time_diff'].min()) 
+print("Min : " , df['time_diff'].min())
 print("Max : ",df['time_diff'].max() )
 negtime = df.query("time_diff < 0")  # data has bug ...
 negfare = df.query("fare_amount < 0") # data has bug ...
@@ -75,7 +75,7 @@ print("the mean fare per minute driven :" + str(sum(df["fare_amount"])/ sum(df["
 
 fare_per_min_mean = str(sum(df["fare_amount"])/ sum(df["time_diff"]))
 with open("Q5_mean_fare_per_min_driven.txt", "w") as text_file:
-    print(f"the mean fare per minute driven :  {fare_per_min_mean}", file=text_file)
+    print(f"the mean fare per minute driven :  {fare_per_min_mean}", file=text_file)"""
 
 """
     the median of the taxi's fare per mile driven #
@@ -111,34 +111,24 @@ with open("Q7_95th_avg_speed_miles_per_hour.txt", "w") as text_file:
     the average ratio of the distance between the pickup and drop-off divided by the distance driven
 """
 
-"""from geopy.geocoders import Nominatim
-from geopy.distance import vincenty
-geolocator = Nominatim()
-
-taxi_zone_df = pd.read_csv("data/taxi _zone_lookup.csv")
+taxi_zone_df = pd.read_csv("v2_zone_geocode.csv")
 df_clean = df[['trip_distance','PULocationID','DOLocationID']]
-add_begloc = pd.merge(df_clean,taxi_zone_df, left_on="PULocationID", right_on="LocationID",how='left')
-add_begloc["Zone"] = add_begloc["Zone"] +"," +add_begloc["Borough"]
-add_begloc = add_begloc.rename(columns={'Zone':'begZone'})
-add_begloc = add_begloc.drop(['service_zone', 'Borough'], axis=1)
-add_begloc['beg_geocode'] = add_begloc['begZone'].apply(geolocator.geocode)
-print(add_begloc.head())
+
+PUlat = [ taxi_zone_df['lat'][taxi_zone_df['LocationID'] == df_clean['PULocationID'][x]] for x in range(0,(len(df.index)))]
+PUlon = [ taxi_zone_df['lng'][taxi_zone_df['LocationID'] == df_clean['PULocationID'][x]] for x in range(0,(len(df.index)))]
+
+DOlat = [ taxi_zone_df['lat'][taxi_zone_df['LocationID'] == df_clean['DOLocationID'][x]] for x in range(0,(len(df.index)))]
+DOlon = [ taxi_zone_df['lng'][taxi_zone_df['LocationID'] == df_clean['DOLocationID'][x]] for x in range(0,(len(df.index)))]
+
+import mpu
+#km to miles
+dist = [mpu.haversine_distance((float(PUlat[i]), float(PUlon[i])), (float(DOlat[i]), float(DOlon[i]))) * 0.621371 for i in range(0,(len(df.index)))]
 
 
-add_endloc = pd.merge(add_begloc, taxi_zone_df, left_on="DOLocationID", right_on="LocationID",how='left')
-add_endloc["Zone"] = add_endloc["Zone"] +"," +add_endloc["Borough"]
-add_endloc = add_endloc.rename(columns={'Zone':'endZone'})
-add_endloc = add_endloc.drop(['service_zone','Borough'], axis=1)
-add_endloc['end_geocode'] = add_endloc['endZone'].apply(geolocator.geocode)
+distance_diff = sum(dist)/sum(df['trip_distance'])
 
-add_endloc['beg_end_distance']= add_endloc.apply((lambda row: vincenty(add_endloc['endZone'],add_endloc['begZone']).miles),axis=1)
-
-add_endloc['distance_diff'] = add_endloc['beg_end_distance']/add_endloc['trip_distance']
-
-print(add_endloc['distance_diff'].mean())
-avg_beg_end_distance_divided_distance_driven = add_endloc['distance_diff'].mean()
 with open("Q8_avg_beg_end_distance_divided_distance_driven.txt", "w") as text_file:
-    print(f"the average ratio of the distance between the pickup and drop-off divided by the distance driven :  {avg_beg_end_distance_divided_distance_driven}", file=text_file)"""
+    print(f"the average ratio of the distance between the pickup and drop-off divided by the distance driven :  {distance_diff}", file=text_file)
 
 
 
