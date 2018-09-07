@@ -121,7 +121,7 @@ DOlat = [ taxi_zone_df['lat'][taxi_zone_df['LocationID'] == df_clean['DOLocation
 DOlon = [ taxi_zone_df['lng'][taxi_zone_df['LocationID'] == df_clean['DOLocationID'][x]] for x in range(0,(len(df.index)))]
 
 import mpu
-#km to miles
+#km to mile
 dist = [mpu.haversine_distance((float(PUlat[i]), float(PUlon[i])), (float(DOlat[i]), float(DOlon[i]))) * 0.621371 for i in range(0,(len(df.index)))]
 
 

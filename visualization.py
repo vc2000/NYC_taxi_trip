@@ -1,6 +1,5 @@
 import pandas as pd
 import folium
-from folium import IFrame
 
 df = pd.read_csv("data/yellow_tripdata_2017-01.csv")
 
