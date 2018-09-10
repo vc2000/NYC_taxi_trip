@@ -13,7 +13,7 @@ The goal of the project is to analyze the large dataset from http://www.nyc.gov/
 
 ## Project Outcome
 
-### Click here to view heatmap: 
+Click to view [heatmap](https://vc2000.github.io/NYC_taxi_trip/heatmap/)
 
 ## Developer Note
 
