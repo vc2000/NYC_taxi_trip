@@ -17,8 +17,8 @@ Click to view [heatmap](https://vc2000.github.io/NYC_taxi_trip/heatmap/)
 
 ## Developer Note
 
-- [Using PyCharm](https://www.jetbrains.com/help/pycharm-edu/creating-virtual-environment.html)
-- - Highly recommended using PyCharm to create virtualenv and install packages from requirements.txt
+- [Using Visual Studio Code](https://visual-studio-code.en.softonic.com/)
+- - Highly recommended using Visual Studio Code to create virtualenv
 ---
 - [Anaconda-Spyder](https://www.anaconda.com/)
 - - Make sure you are using Spyder version >= 3.2.8 (There is a bug from Spyder which causes error to connect to Google API)
