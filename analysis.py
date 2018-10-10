@@ -1,5 +1,4 @@
 import pandas as pd
-import numpy as np
 from fractions import Fraction
 from math import radians, cos, sin, asin, sqrt
 
